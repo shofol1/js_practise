@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listener</title>
+  </head>
+  <body>
+    <button class="class_btn">click query class</button>
+    <div class="class">this is query class</div>
+    <button class="query_btn">click query id</button>
+    <div id="query_id">this is query id</div>
+    <button class="id_btn">click id</button>
+    <div id="id">this id id</div>
+
+    <script>
+      var query_class = document.querySelector(".class");
+      var query_id = document.querySelector("#query_id");
+      var id = document.getElementById("id");
+      var class_button = document.querySelector(".class_btn");
+      var query_button = document.querySelector(".query_btn");
+      var id_button = document.querySelector(".id_btn");
+
+      class_button.addEventListener("click", () => {
+        query_class.textContent = "this is query class and its working";
+      });
+      query_button.addEventListener("click", () => {
+        query_id.textContent = "this is query id and its working";
+      });
+      id_button.addEventListener("click", () => {
+        id.textContent = "this is id and its working";
+      });
+    </script>
+  </body>
+</html>

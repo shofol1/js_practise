@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Interval</title>
+  </head>
+  <body>
+    <button class="hello_btn">Add Hello</button>
+    <div class="hello_class">Hello</div>
+    <button class="start_btn">Start Interval</button>
+    <div class="timeInterval"></div>
+
+    <script>
+      var hello_button = document.querySelector(".hello_btn");
+      var start_button = document.querySelector(".start_btn");
+      var hello_class = document.querySelector(".hello_class");
+      var timeInt = document.querySelector(".timeInterval");
+      var s = 0;
+      var counter;
+
+      hello_button.addEventListener("click", () => {
+        hello_class.textContent = hello_class.textContent + " Hello";
+      });
+
+      start_button.addEventListener("click", () => {
+        if (!counter) {
+          counter = setInterval(runSeconds, 1000);
+        }
+        function runSeconds() {
+          timeInt.textContent = s + 1;
+          s++;
+        }
+      });
+    </script>
+  </body>
+</html>

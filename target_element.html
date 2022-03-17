@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Target</title>
+  </head>
+  <body>
+    <div class="class">this is query class</div>
+    <div id="query_id">this is query id</div>
+    <div id="id">this id id</div>
+
+    <script>
+      var query_class = document.querySelector(".class");
+      query_class.textContent = "this is query class and its working";
+      var query_id = document.querySelector("#query_id");
+      query_id.textContent = "this is query id and its working";
+      document.getElementById("id").textContent = "this is id and its working";
+    </script>
+  </body>
+</html>
