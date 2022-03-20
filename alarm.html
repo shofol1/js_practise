@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alerm</title>
+    <style>
+      body {
+        background-color: black;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .current_time {
+        font-size: 60px;
+        margin: 20 0;
+      }
+      .alarm_time {
+        font-size: 60px;
+        margin: 20 0;
+      }
+      .alarm {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="current_time"></div>
+      <div class="alarm_time"></div>
+      <div class="alarm">not yet...</div>
+      <audio id="xyz" src="alarm.mp3" preload="auto"></audio>
+    </div>
+
+    <script>
+      const a_hour = window.prompt("Enter your hour");
+      const a_minute = window.prompt("Enter your minute");
+      const a_second = window.prompt("Enter your second");
+      function currentTime() {
+        const d = new Date();
+        var minutes = d.getMinutes();
+        var hours = d.getHours();
+        var seconds = d.getSeconds();
+        document.querySelector(".current_time").textContent =
+          hours + ":" + minutes + ":" + seconds;
+        document.querySelector(".alarm_time").textContent =
+          a_hour + ":" + a_minute + ":" + a_second;
+        if (a_hour == hours && a_minute == minutes && a_second == seconds) {
+          document.querySelector(".alarm").textContent = "time is over";
+          document.getElementById("xyz").play();
+        }
+        setTimeout(currentTime, 1000);
+      }
+      currentTime();
+    </script>
+  </body>
+</html>

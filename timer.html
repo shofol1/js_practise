@@ -47,7 +47,7 @@
           counter = setInterval(run, 10);
         }
         function run() {
-          default_time.textContent = m + ":" + s + ":" + ms;
+          default_time.textContent = currentTime();
           ms++;
           if (ms == 100) {
             ms = 0;
@@ -67,8 +67,11 @@
         clearInterval(counter);
         counter = false;
         (m = 0), (s = 0), (ms = 0);
-        default_time.textContent = m + ":" + s + ":" + ms;
+        default_time.textContent = currentTime();
       });
+      const currentTime = () => {
+        return m + ":" + s + ":" + ms;
+      };
     </script>
   </body>
 </html>
