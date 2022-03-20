@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop watch</title>
+    <style>
+      body {
+        background-color: black;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .timer {
+        font-size: 60px;
+        text-align: center;
+        margin: 10px 0;
+      }
+      .btn {
+        padding: 10px 30px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="timer">00:00:00</div>
+      <button class="start_btn btn">Start</button>
+      <button class="stop_btn btn">Stop</button>
+      <button class="reset_btn btn">reset</button>
+    </div>
+    <script>
+      const start_btn = document.querySelector(".start_btn");
+      const stop_btn = document.querySelector(".stop_btn");
+      const reset_btn = document.querySelector(".reset_btn");
+      const default_time = document.querySelector(".timer");
+
+      var s = 0,
+        ms = 0,
+        m = 0;
+      var counter;
+      start_btn.addEventListener("click", function () {
+        if (!counter) {
+          counter = setInterval(run, 10);
+        }
+        function run() {
+          default_time.textContent = m + ":" + s + ":" + ms;
+          ms++;
+          if (ms == 100) {
+            ms = 0;
+            s++;
+          }
+          if (s == 60) {
+            s = 0;
+            m++;
+          }
+        }
+      });
+      stop_btn.addEventListener("click", () => {
+        clearInterval(counter);
+        counter = false;
+      });
+      reset_btn.addEventListener("click", () => {
+        clearInterval(counter);
+        counter = false;
+        (m = 0), (s = 0), (ms = 0);
+        default_time.textContent = m + ":" + s + ":" + ms;
+      });
+    </script>
+  </body>
+</html>
